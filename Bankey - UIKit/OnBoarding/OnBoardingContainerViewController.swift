@@ -20,6 +20,7 @@ class OnboardingContainerViewController: UIViewController {
     let closeButton = UIButton(type: .system)
     let nextButton = UIButton(type: .system)
     let doneButton = UIButton(type: .system)
+    let backButton = UIButton(type: .system)
     
     weak var delegate: OnBoardingContainerViewControllerDelegate?
         
@@ -73,6 +74,7 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func style(){
+        
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setTitle("Close", for: [])
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
@@ -80,6 +82,17 @@ class OnboardingContainerViewController: UIViewController {
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Done", for: [])
         doneButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
+        doneButton.isHidden = true
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.setTitle("Next", for: [])
+        nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
+        nextButton.isHidden = false
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setTitle("Back", for: [])
+        backButton.addTarget(self, action: #selector(backTapped), for: .primaryActionTriggered)
+        backButton.isHidden = true
     }
     
     private func layout(){
@@ -107,7 +120,10 @@ extension OnboardingContainerViewController {
     }
     
     @objc private func nextTapped(_ sender: UIButton){
-        
+    }
+    
+    @objc private func backTapped(_ sender: UIButton){
+        pageViewController.setViewControllers(pages, direction: .reverse, animated: true)
     }
 }
 

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
 class DummyViewController: UIViewController {
     
     let stackView = UIStackView()
@@ -26,6 +30,8 @@ class DummyViewController: UIViewController {
 extension DummyViewController {
     
     func style(){
+        title = "Demo Logout"
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
@@ -51,7 +57,6 @@ extension DummyViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-    
 }
 
 extension DummyViewController {

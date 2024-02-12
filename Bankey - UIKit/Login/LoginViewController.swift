@@ -11,10 +11,6 @@ protocol LoginViewControllerDelegate: AnyObject {
     func didLogin()
 }
 
-protocol LogoutDelegate: AnyObject {
-    func didLogout()
-}
-
 class LoginViewController: UIViewController {
 
     let titleLabel = UILabel()
@@ -78,6 +74,7 @@ extension LoginViewController {
     }
     
     private func layout(){
+        
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
         view.addSubview(loginView)
