@@ -30,11 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onBoardingContainerViewController.delegate = self
         dummyViewController.delegate = self
         
-        //window?.rootViewController = loginViewController
         //window?.rootViewController = onBoardingContainerViewController
-//        window?.rootViewController = mainViewController
+        window?.rootViewController = mainViewController
         //window?.rootViewController = loginViewController
-        window?.rootViewController = AccountSummaryViewController()
 //        window?.rootViewController = OnBoardingViewController(heroImageName: "delorean", text: "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in the 80s")
 //        
         
